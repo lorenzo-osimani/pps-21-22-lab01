@@ -71,14 +71,20 @@ public class CircularListImpl implements CircularList {
     }
 
     private void incrementPosition() {
-        this.currentPosition = (currentPosition + 1) % size();
+        this.currentPosition++;
+        checkPositionBoundaries();
     }
 
     private void decrementPosition() {
-        if(this.currentPosition > 0) {
-            this.currentPosition = (currentPosition - 1);
+        this.currentPosition--;
+        checkPositionBoundaries();
+    }
+
+    private void checkPositionBoundaries() {
+        if(this.currentPosition < 0) {
+            this.currentPosition = size() - 1;
         } else {
-            this.currentPosition = internalList.size() - 1;
+            this.currentPosition %= size();
         }
     }
 }

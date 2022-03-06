@@ -2,7 +2,7 @@ package lab01.example.model;
 
 public class SimpleBankAccountWithATM extends BasicBankAccount {
 
-    private int fee = 1;
+    private final int fee = 1;
 
     public SimpleBankAccountWithATM(final AccountHolder holder, final double balance) {
         super(balance, holder);
